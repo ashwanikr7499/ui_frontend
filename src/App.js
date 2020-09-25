@@ -1,12 +1,26 @@
 import React from "react";
 import "./App.css";
-import Home from "./pages/Home";
+import NavTabs from "./pages/NavTabs";
+import AppointmentModule from "./pages/AppointmentModule";
+import CounterModule from "./pages/CounterModule";
+import StockTransferModule from "./pages/StockTransferModule";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import history from "./HistoryContainer/History";
+import { Router } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <Home />
-    </div>
+    <Router history={history}>
+      <div className="App">
+        <NavTabs />
+
+        <Switch>
+          <Route path="/stock" exact component={StockTransferModule} />
+          <Route path="/counter" exact component={CounterModule} />
+          <Route path="/appointment" exact component={AppointmentModule} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
