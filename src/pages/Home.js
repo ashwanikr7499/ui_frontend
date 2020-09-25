@@ -1,5 +1,36 @@
 import React, { Component } from "react";
 class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      state_fname: "",
+      state_lname: "",
+      state_emailid: "",
+      state_password: "",
+    };
+    this.update_fname = this.update_fname.bind(this);
+    this.update_lname = this.update_lname.bind(this);
+    this.update_emailid = this.update_emailid.bind(this);
+    this.update_password = this.update_password.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
+  }
+
+  update_fname(e) {
+    this.setState({ state_fname: e.target.value });
+  }
+  update_lname(e) {
+    this.setState({ state_lname: e.target.value });
+  }
+  update_emailid(e) {
+    this.setState({ state_emailid: e.target.value });
+  }
+  update_password(e) {
+    this.setState({ state_password: e.target.value });
+  }
+  handleLogin(e) {
+    console.log(this.state.state_fname + " " + this.state.state_lname);
+    console.log(this.state.state_emailid + " " + this.state.state_password);
+  }
   render() {
     return (
       <div>
@@ -17,12 +48,13 @@ class Home extends React.Component {
                       <form method="POST">
                         <div class="row">
                           <div class="form-group col-6">
-                            <label for="frist_name">First Name</label>
+                            <label for="first_name">First Name</label>
                             <input
-                              id="frist_name"
+                              id="first_name"
                               type="text"
                               class="form-control"
-                              name="frist_name"
+                              name="first_name"
+                              onChange={this.update_fname}
                               autofocus
                             />
                           </div>
@@ -33,6 +65,7 @@ class Home extends React.Component {
                               type="text"
                               class="form-control"
                               name="last_name"
+                              onChange={this.update_lname}
                             />
                           </div>
                         </div>
@@ -43,6 +76,7 @@ class Home extends React.Component {
                             type="email"
                             class="form-control"
                             name="email"
+                            onChange={this.update_emailid}
                           />
                           <div class="invalid-feedback"></div>
                         </div>
@@ -57,6 +91,7 @@ class Home extends React.Component {
                               class="form-control pwstrength"
                               data-indicator="pwindicator"
                               name="password"
+                              onChange={this.update_password}
                             />
                             <div id="pwindicator" class="pwindicator">
                               <div class="bar"></div>
@@ -92,6 +127,7 @@ class Home extends React.Component {
                           <button
                             type="submit"
                             class="btn btn-primary btn-lg btn-block"
+                            onClick={this.handleLogin}
                           >
                             Register
                           </button>
