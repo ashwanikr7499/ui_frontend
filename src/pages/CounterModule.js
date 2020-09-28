@@ -1,4 +1,4 @@
 import React from "react";
 export default function CounterModule(props) {
-  return <h1>This is CounterModule</h1>;
+  return <div>This is CounterModule</div>;
 }

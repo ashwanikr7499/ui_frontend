@@ -1,4 +1,10 @@
 import React from "react";
+import Table from "../core/Table";
 export default function StockTransferModule(props) {
-  return <h1>This is StockTransferModule</h1>;
+  return (
+    <div>
+      This is StockTransferModule
+      <Table />
+    </div>
+  );
 }

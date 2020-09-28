@@ -4,7 +4,8 @@ import NavTabs from "./pages/NavTabs";
 import AppointmentModule from "./pages/AppointmentModule";
 import CounterModule from "./pages/CounterModule";
 import StockTransferModule from "./pages/StockTransferModule";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
+// import { BrowserRouter } from "react-router-dom";
 import history from "./HistoryContainer/History";
 import { Router } from "react-router-dom";
 
