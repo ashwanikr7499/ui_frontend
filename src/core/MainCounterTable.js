@@ -52,7 +52,12 @@ export default function MainCounterTable() {
               <TableCell align="right">{row.a3}</TableCell>
               <TableCell align="right">{row.a4}</TableCell>
               <TableCell align="right">{row.a5}</TableCell>
-              <TableCell align="right">{row.a6}</TableCell>
+              <TableCell align="right">
+                <a href="#" class="btn btn-icon icon-left btn-warning">
+                  <i class="fas fa-exclamation-triangle"></i>
+                  Add to Stock counter
+                </a>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

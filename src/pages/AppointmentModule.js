@@ -3,7 +3,7 @@ import PatientTable from "../core/PatientTable";
 export default function AppointmentModule(props) {
   return (
     <div>
-      This is AppointmentModule
+      <h2>This is AppointmentModule</h2>
       <PatientTable />
     </div>
   );

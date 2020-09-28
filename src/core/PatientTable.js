@@ -14,16 +14,16 @@ const useStyles = makeStyles({
   },
 });
 
-function createData(a1, a2, a3, a4, a5) {
-  return { a1, a2, a3, a4, a5 };
+function createData(a1, a2, a3, a4, a5, a6) {
+  return { a1, a2, a3, a4, a5, a6 };
 }
 
 const rows = [
-  createData("17JE003001", "NAME 1", 20, "B Tech CSE", "Student"),
-  createData("EMP3002", "NAME 2", 21, "Petro", "Father"),
-  createData("EMP3003", "NAME 3", 23, "MnC", "Son"),
-  createData("17JE003004", "NAME 4", 18, " BTech ECE", "Student"),
-  createData("17JE003005", "NAME 5", 19, "MTech MnC", "Student"),
+  createData("17JE003001", "NAME 1", 20, "B Tech CSE", "Student", "More Inf."),
+  createData("EMP3002", "NAME 2", 21, "Petro", "Father", "More Inf."),
+  createData("EMP3003", "NAME 3", 23, "MnC", "Son", "More Inf."),
+  createData("17JE003004", "NAME 4", 18, " BTech ECE", "Student", "More Inf."),
+  createData("17JE003005", "NAME 5", 19, "MTech MnC", "Student", "More Inf."),
 ];
 
 export default function PatientTable() {
@@ -39,6 +39,7 @@ export default function PatientTable() {
             <TableCell align="right">Age </TableCell>
             <TableCell align="right">Department</TableCell>
             <TableCell align="right">Relation</TableCell>
+            <TableCell align="right">More Details</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -51,6 +52,11 @@ export default function PatientTable() {
               <TableCell align="right">{row.a3}</TableCell>
               <TableCell align="right">{row.a4}</TableCell>
               <TableCell align="right">{row.a5}</TableCell>
+              <TableCell align="right">
+                <a href="#" class="btn btn-icon btn-info">
+                  <i class="fas fa-info-circle"></i>
+                </a>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
