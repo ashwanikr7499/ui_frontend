@@ -1,14 +1,12 @@
 import React from "react";
 
-import MainCounterTable from "../core/MainCounterTable";
+
+import StockCounterTable from "../core/StockCounterTable";
 export default function StockTransferModule(props) {
   return (
     <div>
-  
-     
-   
-      <h2>Main Counter</h2>
-      <MainCounterTable />
+      <h2>Stock Transfer Counter</h2>
+      <StockCounterTable />
     </div>
   );
 }

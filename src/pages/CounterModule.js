@@ -1,5 +1,5 @@
 import React from "react";
-import StockCounterTable from "../core/StockCounterTable";
+import MainCounterTable from "../core/MainCounterTable";
 export default function CounterModule(props) {
   return (
     <div>
@@ -17,7 +17,7 @@ export default function CounterModule(props) {
           Update Batch Number
         </a>
       </div>
-      <StockCounterTable />
+      <MainCounterTable />
     </div>
   );
 }

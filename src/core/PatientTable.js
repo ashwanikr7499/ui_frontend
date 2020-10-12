@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -7,6 +7,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import axios from "axios";
 
 const useStyles = makeStyles({
   table: {
@@ -14,20 +15,19 @@ const useStyles = makeStyles({
   },
 });
 
-function createData(a1, a2, a3, a4, a5, a6) {
-  return { a1, a2, a3, a4, a5, a6 };
-}
 
-const rows = [
-  createData("17JE003001", "NAME 1", 20, "B Tech CSE", "Student", "More Inf."),
-  createData("EMP3002", "NAME 2", 21, "Petro", "Father", "More Inf."),
-  createData("EMP3003", "NAME 3", 23, "MnC", "Son", "More Inf."),
-  createData("17JE003004", "NAME 4", 18, " BTech ECE", "Student", "More Inf."),
-  createData("17JE003005", "NAME 5", 19, "MTech MnC", "Student", "More Inf."),
-];
 
 export default function PatientTable() {
   const classes = useStyles();
+  const [patientTableRows, setPatientTableRows] = useState([]);
+  useEffect(() => {
+    const apiUrl = "http://localhost:8000/api/patients/";
+    axios.get(apiUrl).then((repos) => {
+      setPatientTableRows(repos.data);
+      // console.log("ashu");
+      // console.log(mainTableRows);
+    });
+  }, []);
 
   return (
     <TableContainer component={Paper}>
@@ -35,23 +35,44 @@ export default function PatientTable() {
         <TableHead>
           <TableRow>
             <TableCell>Patient ID</TableCell>
-            <TableCell align="right">Name</TableCell>
-            <TableCell align="right">Age </TableCell>
-            <TableCell align="right">Department</TableCell>
+            <TableCell align="right">Patient Visitor ID</TableCell>
+            <TableCell align="right">Name </TableCell>
             <TableCell align="right">Relation</TableCell>
-            <TableCell align="right">More Details</TableCell>
+            <TableCell align="right">Mid</TableCell>
+            <TableCell align="right">n_days</TableCell>
+            <TableCell align="right">m_qty</TableCell>
+            <TableCell align="right">Visit Date</TableCell>
+            <TableCell align="right">Doctor id</TableCell>
+            <TableCell align="right">m_status</TableCell>
+            <TableCell align="right">med_issued_by</TableCell>
+            <TableCell align="right">med_issued_on</TableCell>
+            <TableCell align="right">Visit No</TableCell>
+            <TableCell align="right">Press No</TableCell>
+            <TableCell align="right">Batch No</TableCell>
+            <TableCell align="right">Operation</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.a1}>
+          {patientTableRows.map((row) => (
+            <TableRow key={row.id}>
               <TableCell component="th" scope="row">
-                {row.a1}
+                {row.id}
               </TableCell>
-              <TableCell align="right">{row.a2}</TableCell>
-              <TableCell align="right">{row.a3}</TableCell>
-              <TableCell align="right">{row.a4}</TableCell>
-              <TableCell align="right">{row.a5}</TableCell>
+              <TableCell align="right">{row.pat_visitor_id}</TableCell>
+              <TableCell align="right">{row.pat_name}</TableCell>
+              <TableCell align="right">{row.pat_prel}</TableCell>
+              <TableCell align="right">{row.pat_mid}</TableCell>
+              <TableCell align="right">{row.pat_dose}</TableCell>
+              <TableCell align="right">{row.pat_ndays}</TableCell>
+              <TableCell align="right">{row.pat_mqty}</TableCell>
+              <TableCell align="right">{row.pat_visit_date}</TableCell>
+              <TableCell align="right">{row.pat_doc_id}</TableCell>
+              <TableCell align="right">{row.pat_m_status}</TableCell>
+              <TableCell align="right">{row.pat_med_issued_by}</TableCell>
+              <TableCell align="right">{row.pat_med_issued_on}</TableCell>
+              <TableCell align="right">{row.pat_press_no}</TableCell>
+              <TableCell align="right">{row.pat_batch_no}</TableCell>
+
               <TableCell align="right">
                 <a href="#" class="btn btn-icon btn-info">
                   <i class="fas fa-info-circle"></i>
