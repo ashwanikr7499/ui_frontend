@@ -24,8 +24,7 @@ export default function PatientTable() {
     const apiUrl = "http://localhost:8000/api/patients/";
     axios.get(apiUrl).then((repos) => {
       setPatientTableRows(repos.data);
-      // console.log("ashu");
-      // console.log(mainTableRows);
+     
     });
   }, []);
 

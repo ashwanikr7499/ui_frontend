@@ -23,8 +23,7 @@ export default function MainCounterTable() {
     const apiUrl = "http://localhost:8000/api/medicines/";
     axios.get(apiUrl).then((repos) => {
       setMainTableRows(repos.data);
-      console.log("ashu");
-      console.log(mainTableRows);
+     
     });
   }, []);
   return (

@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -17,14 +17,12 @@ const useStyles = makeStyles({
 
 export default function StockCounterTable() {
   const classes = useStyles();
-  
+
   const [stockTableRows, setStockTableRows] = useState([]);
   useEffect(() => {
     const apiUrl = "http://localhost:8000/api/stock_medicines/";
     axios.get(apiUrl).then((repos) => {
       setStockTableRows(repos.data);
-      console.log("ashu");
-      console.log(stockTableRows);
     });
   }, []);
   return (
