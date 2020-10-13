@@ -8,6 +8,8 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import axios from "axios";
+import Button from "@material-ui/core/Button";
+import MainCounterFormDialog from "./components/MainCounterFormDialog";
 
 const useStyles = makeStyles({
   table: {
@@ -23,7 +25,6 @@ export default function MainCounterTable() {
     const apiUrl = "http://localhost:8000/api/medicines/";
     axios.get(apiUrl).then((repos) => {
       setMainTableRows(repos.data);
-     
     });
   }, []);
   return (
@@ -50,10 +51,10 @@ export default function MainCounterTable() {
               <TableCell align="right">{row.med_qty}</TableCell>
               <TableCell align="right">{row.updatedAt}</TableCell>
               <TableCell align="right">
-                <a href="#" class="btn btn-icon icon-left btn-warning">
+                {/* <a href="#" class="btn btn-icon icon-left btn-warning">
                   <i class="fas fa-exclamation-triangle"></i>
-                  Send to Counter
-                </a>
+                </a> */}
+                <MainCounterFormDialog />
               </TableCell>
             </TableRow>
           ))}
