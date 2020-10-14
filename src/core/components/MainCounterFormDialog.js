@@ -11,7 +11,7 @@ import Icon from "@material-ui/core/Icon";
 import EditIcon from "@material-ui/icons/Edit";
 import axios from "axios";
 
-export default function FormDialog({ row }) {
+export default function MainCounterFormDialog({ row }) {
   const [open, setOpen] = React.useState(false);
   const [textInput, setTextInput] = React.useState("");
 

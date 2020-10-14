@@ -8,6 +8,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import axios from "axios";
+import PatientFormDialog from "./components/PatientFormDialog"
 
 const useStyles = makeStyles({
   table: {
@@ -38,6 +39,7 @@ export default function PatientTable() {
             <TableCell align="right">Name </TableCell>
             <TableCell align="right">Relation</TableCell>
             <TableCell align="right">Mid</TableCell>
+            <TableCell align="right">Dose</TableCell>
             <TableCell align="right">n_days</TableCell>
             <TableCell align="right">m_qty</TableCell>
             <TableCell align="right">Visit Date</TableCell>
@@ -73,9 +75,10 @@ export default function PatientTable() {
               <TableCell align="right">{row.pat_batch_no}</TableCell>
 
               <TableCell align="right">
-                <a href="#" class="btn btn-icon btn-info">
+                {/* <a href="#" class="btn btn-icon btn-info">
                   <i class="fas fa-info-circle"></i>
-                </a>
+                </a> */}
+                <PatientFormDialog row={row} />
               </TableCell>
             </TableRow>
           ))}
