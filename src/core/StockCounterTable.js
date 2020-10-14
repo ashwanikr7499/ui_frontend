@@ -8,7 +8,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import axios from "axios";
-import FormDialog from "./components/FormDialog";
+import StockCounterFormDialog from "./components/StockCounterFormDialog";
 
 const useStyles = makeStyles({
   table: {
@@ -55,7 +55,7 @@ export default function StockCounterTable() {
               <TableCell align="right" onClick={() => addToMainCounter(row.id)}>
                 {/* <a href="#" class="btn btn-icon icon-left btn-warning">
                   <i class="fas fa-exclamation-triangle"></i> */}
-                  <FormDialog/>
+                <StockCounterFormDialog row={row}/>
                 {/* </a> */}
               </TableCell>
             </TableRow>
