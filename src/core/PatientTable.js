@@ -8,15 +8,13 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import axios from "axios";
-import PatientFormDialog from "./components/PatientFormDialog"
+import PatientFormDialog from "./components/PatientFormDialog";
 
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
   },
 });
-
-
 
 export default function PatientTable() {
   const classes = useStyles();
@@ -25,7 +23,6 @@ export default function PatientTable() {
     const apiUrl = "http://localhost:8000/api/patients/";
     axios.get(apiUrl).then((repos) => {
       setPatientTableRows(repos.data);
-     
     });
   }, []);
 
@@ -59,6 +56,7 @@ export default function PatientTable() {
               <TableCell component="th" scope="row">
                 {row.id}
               </TableCell>
+
               <TableCell align="right">{row.pat_visitor_id}</TableCell>
               <TableCell align="right">{row.pat_name}</TableCell>
               <TableCell align="right">{row.pat_prel}</TableCell>
@@ -71,6 +69,7 @@ export default function PatientTable() {
               <TableCell align="right">{row.pat_m_status}</TableCell>
               <TableCell align="right">{row.pat_med_issued_by}</TableCell>
               <TableCell align="right">{row.pat_med_issued_on}</TableCell>
+              <TableCell align="right">{row.pat_visit_no}</TableCell>
               <TableCell align="right">{row.pat_press_no}</TableCell>
               <TableCell align="right">{row.pat_batch_no}</TableCell>
 

@@ -25,7 +25,7 @@ export default function PatientFormDialog({ row }) {
   const [pat_m_status, set_pat_m_status] = React.useState(row.pat_m_status);
   const [pat_med_issued_by, set_pat_med_issued_by] = React.useState(row.pat_med_issued_by);
   const [pat_med_issued_on, set_pat_med_issued_on] = React.useState(row.pat_med_issued_on);
-  const [pat_vis_no, setPatientId] = React.useState(row.pat_vis_no);
+  const [pat_vis_no, set_pat_visit_no] = React.useState(row.pat_visit_no);
   const [pat_press_no, set_pat_press_no] = React.useState(row.pat_press_no);
   const [pat_batch_no, set_pat_batch_no] = React.useState(row.pat_batch_no);
 
@@ -49,6 +49,7 @@ export default function PatientFormDialog({ row }) {
         pat_m_status: pat_m_status,
         pat_med_issued_by: pat_med_issued_by,
         pat_med_issued_on: pat_med_issued_on,
+        pat_vis_no: pat_vis_no,
         pat_press_no: pat_press_no,
         pat_batch_no: pat_batch_no,
       })
@@ -227,7 +228,18 @@ export default function PatientFormDialog({ row }) {
             type="text"
             fullWidth
           />
-
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            value={pat_vis_no}
+            onChange={(event) => {
+              set_pat_visit_no(event.target.value);
+            }}
+            label="Visit Number"
+            type="text"
+            fullWidth
+          />
           <TextField
             autoFocus
             margin="dense"
