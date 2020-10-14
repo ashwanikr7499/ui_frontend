@@ -55,6 +55,7 @@ export default function StockCounterFormDialog({ row }) {
             .then((repos) => {});
         }
       });
+      window.location.reload();
     }
 
     setOpen(false);

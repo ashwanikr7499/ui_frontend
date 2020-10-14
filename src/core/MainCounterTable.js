@@ -54,7 +54,7 @@ export default function MainCounterTable() {
                 {/* <a href="#" class="btn btn-icon icon-left btn-warning">
                   <i class="fas fa-exclamation-triangle"></i>
                 </a> */}
-                <MainCounterFormDialog />
+                <MainCounterFormDialog row={row} />
               </TableCell>
             </TableRow>
           ))}
